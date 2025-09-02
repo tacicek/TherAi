@@ -3,19 +3,22 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL
 const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY
 
+let supabase;
+
 if (!supabaseUrl || !supabaseAnonKey) {
   console.warn('Supabase environment variables not configured. Please set PUBLIC_SUPABASE_URL and PUBLIC_SUPABASE_ANON_KEY in .env file');
   // Create a dummy client to prevent errors
-  export const supabase = createClient('https://dummy.supabase.co', 'dummy-key');
+  supabase = createClient('https://dummy.supabase.co', 'dummy-key');
 } else {
-  export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  supabase = createClient(supabaseUrl, supabaseAnonKey, {
     auth: {
       persistSession: true,
       autoRefreshToken: true,
     },
-  })
+  });
 }
 
+export { supabase };
 
 // Database types (will be generated from your schema)
 export type Database = {
