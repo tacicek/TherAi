@@ -2,13 +2,18 @@ import { supabase } from './supabase';
 
 // Test Supabase connection
 export async function testConnection() {
+  if (!import.meta.env.PUBLIC_SUPABASE_URL || !import.meta.env.PUBLIC_SUPABASE_ANON_KEY) {
+    console.log('⚠️ Supabase not configured. Please add your credentials to .env file');
+    return false;
+  }
+  
   try {
     const { data, error } = await supabase.from('team_members').select('count').limit(1);
     if (error) throw error;
     console.log('✅ Supabase connection successful!');
     return true;
   } catch (error) {
-    console.error('❌ Supabase connection failed:', error);
+    console.log('⚠️ Supabase connection failed. Please check your credentials in .env file');
     return false;
   }
 }

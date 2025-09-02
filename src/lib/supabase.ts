@@ -1,26 +1,21 @@
 import { createClient } from '@supabase/supabase-js'
 
-// Debug environment variables
-console.log('Environment check:', {
-  url: import.meta.env.PUBLIC_SUPABASE_URL,
-  key: import.meta.env.PUBLIC_SUPABASE_ANON_KEY ? 'Present' : 'Missing',
-  allEnv: import.meta.env
-});
-
 const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL
 const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('Missing environment variables:', { supabaseUrl, supabaseAnonKey });
-  throw new Error(`Missing Supabase environment variables. URL: ${supabaseUrl ? 'Present' : 'Missing'}, Key: ${supabaseAnonKey ? 'Present' : 'Missing'}`)
+  console.warn('Supabase environment variables not configured. Please set PUBLIC_SUPABASE_URL and PUBLIC_SUPABASE_ANON_KEY in .env file');
+  // Create a dummy client to prevent errors
+  export const supabase = createClient('https://dummy.supabase.co', 'dummy-key');
+} else {
+  export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+    auth: {
+      persistSession: true,
+      autoRefreshToken: true,
+    },
+  })
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-  auth: {
-    persistSession: true,
-    autoRefreshToken: true,
-  },
-})
 
 // Database types (will be generated from your schema)
 export type Database = {
