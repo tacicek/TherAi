@@ -15,11 +15,25 @@ export async function testConnection() {
 
 // Contact form service
 export const contactService = {
-  async submitContact(formData: { name: string; email: string; message: string }) {
+  async submitContact(formData: { 
+    firstName: string; 
+    lastName: string; 
+    email: string; 
+    organization?: string; 
+    interest?: string; 
+    message: string; 
+  }) {
     try {
       const { data, error } = await supabase
         .from('contact_submissions')
-        .insert([formData])
+        .insert([{
+          first_name: formData.firstName,
+          last_name: formData.lastName,
+          email: formData.email,
+          organization: formData.organization,
+          interest: formData.interest,
+          message: formData.message
+        }])
         .select();
 
       if (error) throw error;
