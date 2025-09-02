@@ -217,9 +217,12 @@
 </style>
 
 <script>
-  import { contactService } from '../../lib/database';
+  import { contactService, testConnection } from '../../lib/database';
   
   document.addEventListener('DOMContentLoaded', () => {
+    // Test Supabase connection on page load
+    testConnection();
+    
     const form = document.getElementById('contact-form') as HTMLFormElement;
     const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
     const submitText = document.getElementById('submit-text') as HTMLSpanElement;
@@ -248,7 +251,7 @@
         
         // Show success message
         messageDiv.className = 'p-4 rounded-xl text-center font-medium bg-green-500/20 text-green-300 border border-green-500/30';
-        messageDiv.textContent = 'Thank you! Your message has been sent successfully.';
+        messageDiv.textContent = 'Teşekkürler! Mesajınız başarıyla gönderildi.';
         messageDiv.classList.remove('hidden');
         
         // Reset form
@@ -256,8 +259,9 @@
       } catch (error) {
         // Show error message
         messageDiv.className = 'p-4 rounded-xl text-center font-medium bg-red-500/20 text-red-300 border border-red-500/30';
-        messageDiv.textContent = 'Sorry, there was an error sending your message. Please try again.';
+        messageDiv.textContent = 'Üzgünüz, mesajınız gönderilirken bir hata oluştu. Lütfen tekrar deneyin.';
         messageDiv.classList.remove('hidden');
+        console.error('Contact form error:', error);
       } finally {
         // Re-enable submit button
         submitBtn.disabled = false;
