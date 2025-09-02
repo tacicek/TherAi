@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import TeamCard from '../components/ui/TeamCard.astro';
+import { getCollection } from 'astro:content';
+
+const allTeam = await getCollection('team');
+const activeTeam = allTeam
+  .filter(member => member.data.active)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const departments = [...new Set(activeTeam.map(member => member.data.department))];
+---
+
+<Layout 
+  title="Our Team - Ther-AI"
+  description="Meet the world-class team of AI researchers, engineers, and healthcare professionals driving innovation at Ther-AI."
+>
+  <Header />
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-medical-50 to-primary-50 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Our Expert Team
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          World-class researchers, engineers, and healthcare professionals working together 
+          to revolutionize healthcare through artificial intelligence.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Filters -->
+    <section class="py-8 bg-white border-b">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap gap-4 justify-center">
+          <button class="px-4 py-2 bg-medical-600 text-white rounded-lg font-medium filter-btn active" data-filter="all">
+            All Team
+          </button>
+          {departments.map((dept) => (
+            <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 transition-colors duration-200 filter-btn" data-filter={dept}>
+              {dept}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Team Grid -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="team-grid">
+          {activeTeam.map((member) => (
+            <div class="team-member animate-fade-in" data-department={member.data.department}>
+              <TeamCard 
+                name={member.data.name}
+                position={member.data.position}
+                department={member.data.department}
+                bio={member.data.bio}
+                avatar={member.data.avatar}
+                specialties={member.data.specialties}
+                linkedin={member.data.linkedin}
+                email={member.data.email}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // Team filtering functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const teamMembers = document.querySelectorAll('.team-member');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        
+        // Update active button
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-medical-600', 'text-white');
+          btn.classList.add('bg-gray-100', 'text-gray-700');
+        });
+        button.classList.add('active', 'bg-medical-600', 'text-white');
+        button.classList.remove('bg-gray-100', 'text-gray-700');
+        
+        // Filter team members
+        teamMembers.forEach(member => {
+          const department = member.getAttribute('data-department');
+          if (filter === 'all' || department === filter) {
+            member.style.display = 'block';
+          } else {
+            member.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
