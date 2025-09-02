@@ -1,11 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
 import TeamCard from '../ui/TeamCard.astro';
+import teamData from '../../data/team.json';
 
-const allTeam = await getCollection('team');
-const featuredTeam = allTeam
-  .filter(member => member.data.featured && member.data.active)
-  .sort((a, b) => a.data.order - b.data.order)
+const featuredTeam = teamData.teamMembers
+  .filter(member => member.featured && member.active)
+  .sort((a, b) => a.order - b.order)
   .slice(0, 3);
 ---
 
@@ -28,14 +27,14 @@ const featuredTeam = allTeam
       {featuredTeam.map((member, index) => (
         <div class="animate-fade-in" style={`animation-delay: ${index * 0.2}s`}>
           <TeamCard 
-            name={member.data.name}
-            position={member.data.position}
-            department={member.data.department}
-            bio={member.data.bio}
-            avatar={member.data.avatar}
-            specialties={member.data.specialties}
-            linkedin={member.data.linkedin}
-            email={member.data.email}
+            name={member.name}
+            position={member.position}
+            department={member.department}
+            bio={member.bio}
+            avatar={member.avatar}
+            specialties={member.specialties}
+            email={member.email}
+            socialMedia={member.socialMedia}
           />
         </div>
       ))}

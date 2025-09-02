@@ -3,14 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import TeamCard from '../components/ui/TeamCard.astro';
-import { getCollection } from 'astro:content';
+import teamData from '../data/team.json';
 
-const allTeam = await getCollection('team');
-const activeTeam = allTeam
-  .filter(member => member.data.active)
-  .sort((a, b) => a.data.order - b.data.order);
+const activeTeam = teamData.teamMembers
+  .filter(member => member.active)
+  .sort((a, b) => a.order - b.order);
 
-const departments = [...new Set(activeTeam.map(member => member.data.department))];
+const departments = [...new Set(activeTeam.map(member => member.department))];
 ---
 
 <Layout 
@@ -53,16 +52,16 @@ const departments = [...new Set(activeTeam.map(member => member.data.department)
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="team-grid">
           {activeTeam.map((member) => (
-            <div class="team-member animate-fade-in" data-department={member.data.department}>
+            <div class="team-member animate-fade-in" data-department={member.department}>
               <TeamCard 
-                name={member.data.name}
-                position={member.data.position}
-                department={member.data.department}
-                bio={member.data.bio}
-                avatar={member.data.avatar}
-                specialties={member.data.specialties}
-                linkedin={member.data.linkedin}
-                email={member.data.email}
+                name={member.name}
+                position={member.position}
+                department={member.department}
+                bio={member.bio}
+                avatar={member.avatar}
+                specialties={member.specialties}
+                email={member.email}
+                socialMedia={member.socialMedia}
               />
             </div>
           ))}

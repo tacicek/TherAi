@@ -1,0 +1,61 @@
+{
+  "teamMembers": [
+    {
+      "id": "prof-dr-sarah-chen",
+      "name": "Prof. Dr. Sarah Chen",
+      "position": "Chief AI Officer & Professor",
+      "department": "Executive",
+      "bio": "Leading AI researcher and Professor of Medical Informatics with 15+ years experience in medical imaging and deep learning. Former Head of AI Research at Stanford Medical Center.",
+      "avatar": "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg",
+      "email": "sarah.chen@ther-ai.com",
+      "specialties": ["Medical AI", "Deep Learning", "Computer Vision", "Healthcare Innovation"],
+      "active": true,
+      "order": 1,
+      "featured": true,
+      "socialMedia": {
+        "linkedin": "https://linkedin.com/in/sarahchen",
+        "instagram": "",
+        "facebook": "",
+        "twitter": ""
+      }
+    },
+    {
+      "id": "prof-dr-michael-rodriguez",
+      "name": "Prof. Dr. Michael Rodriguez",
+      "position": "Professor of Oncology & Senior AI Researcher",
+      "department": "Research",
+      "bio": "Professor of Oncology and AI researcher specialized in oncological AI applications with focus on early cancer detection systems and treatment planning.",
+      "avatar": "https://images.pexels.com/photos/5327921/pexels-photo-5327921.jpeg",
+      "email": "michael.rodriguez@ther-ai.com",
+      "specialties": ["Oncology", "Cancer Detection", "Medical Imaging", "Treatment Planning"],
+      "active": true,
+      "order": 2,
+      "featured": true,
+      "socialMedia": {
+        "linkedin": "https://linkedin.com/in/michaelrodriguez",
+        "instagram": "",
+        "facebook": "",
+        "twitter": ""
+      }
+    },
+    {
+      "id": "dr-emily-thompson",
+      "name": "Dr. Emily Thompson, MD",
+      "position": "Chief Medical Officer",
+      "department": "Medical",
+      "bio": "Board-certified radiologist and medical doctor specializing in AI-assisted diagnostic imaging and clinical decision support systems.",
+      "avatar": "https://images.pexels.com/photos/5327656/pexels-photo-5327656.jpeg",
+      "email": "emily.thompson@ther-ai.com",
+      "specialties": ["Radiology", "Medical Imaging", "Clinical AI", "Diagnostic Systems"],
+      "active": true,
+      "order": 3,
+      "featured": false,
+      "socialMedia": {
+        "linkedin": "https://linkedin.com/in/emilythompson",
+        "instagram": "",
+        "facebook": "",
+        "twitter": ""
+      }
+    }
+  ]
+}
