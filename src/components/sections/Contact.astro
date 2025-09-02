@@ -102,7 +102,7 @@
       
       <!-- Contact Form -->
       <div class="bg-white/10 dark:bg-white/10 light:bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 dark:border-white/20 light:border-white/20">
-        <form class="space-y-6" method="POST" action="/api/contact">
+        <form class="space-y-6" id="contact-form">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <label for="firstName" class="block text-sm font-semibold text-white mb-2">
@@ -192,13 +192,17 @@
           
           <button 
             type="submit"
-            class="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white px-6 py-4 rounded-xl font-bold text-lg hover:from-green-600 hover:to-blue-600 transition-all duration-300 focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            class="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white px-6 py-4 rounded-xl font-bold text-lg hover:from-green-600 hover:to-blue-600 transition-all duration-300 focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-transparent shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed"
+            id="submit-btn"
           >
-            Send Message
+            <span id="submit-text">Send Message</span>
             <svg class="w-5 h-5 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
             </svg>
           </button>
+          
+          <!-- Success/Error Messages -->
+          <div id="form-message" class="hidden p-4 rounded-xl text-center font-medium"></div>
         </form>
       </div>
     </div>
@@ -211,3 +215,54 @@
     background-size: 30px 30px;
   }
 </style>
+
+<script>
+  import { contactService } from '../../lib/database';
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const submitText = document.getElementById('submit-text') as HTMLSpanElement;
+    const messageDiv = document.getElementById('form-message') as HTMLDivElement;
+    
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Disable submit button
+      submitBtn.disabled = true;
+      submitText.textContent = 'Sending...';
+      
+      // Get form data
+      const formData = new FormData(form);
+      const data = {
+        firstName: formData.get('firstName') as string,
+        lastName: formData.get('lastName') as string,
+        email: formData.get('email') as string,
+        organization: formData.get('organization') as string || undefined,
+        interest: formData.get('interest') as string || undefined,
+        message: formData.get('message') as string,
+      };
+      
+      try {
+        await contactService.submitContact(data);
+        
+        // Show success message
+        messageDiv.className = 'p-4 rounded-xl text-center font-medium bg-green-500/20 text-green-300 border border-green-500/30';
+        messageDiv.textContent = 'Thank you! Your message has been sent successfully.';
+        messageDiv.classList.remove('hidden');
+        
+        // Reset form
+        form.reset();
+      } catch (error) {
+        // Show error message
+        messageDiv.className = 'p-4 rounded-xl text-center font-medium bg-red-500/20 text-red-300 border border-red-500/30';
+        messageDiv.textContent = 'Sorry, there was an error sending your message. Please try again.';
+        messageDiv.classList.remove('hidden');
+      } finally {
+        // Re-enable submit button
+        submitBtn.disabled = false;
+        submitText.textContent = 'Send Message';
+      }
+    });
+  });
+</script>
