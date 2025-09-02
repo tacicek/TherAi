@@ -2,13 +2,13 @@ import { createClient } from '@supabase/supabase-js'
 
 // Debug environment variables
 console.log('Environment check:', {
-  url: import.meta.env.VITE_SUPABASE_URL,
-  key: import.meta.env.VITE_SUPABASE_ANON_KEY ? 'Present' : 'Missing',
+  url: import.meta.env.PUBLIC_SUPABASE_URL,
+  key: import.meta.env.PUBLIC_SUPABASE_ANON_KEY ? 'Present' : 'Missing',
   allEnv: import.meta.env
 });
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL
+const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY
 
 if (!supabaseUrl || !supabaseAnonKey) {
   console.error('Missing environment variables:', { supabaseUrl, supabaseAnonKey });
