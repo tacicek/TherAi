@@ -1,57 +1,19 @@
 {
   "teamMembers": [
     {
-      "id": "prof-dr-sarah-chen",
-      "name": "Prof. Dr. Sarah Chen",
-      "position": "Chief AI Officer & Professor",
+      "id": "prof-ulas-bagci",
+      "name": "Prof. Ulas Bagci",
+      "position": "CEO and Founder of Ther-AI LLC",
       "department": "Executive",
-      "bio": "Leading AI researcher and Professor of Medical Informatics with 15+ years experience in medical imaging and deep learning. Former Head of AI Research at Stanford Medical Center.",
-      "avatar": "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg",
-      "email": "sarah.chen@ther-ai.com",
-      "specialties": ["Medical AI", "Deep Learning", "Computer Vision", "Healthcare Innovation"],
+      "bio": "Dr Ulas Bagci is founder and CEO of the Ther-AI LLC and he is leading AI efforts at the company. He is also an Associate Professor (with tenure) at the Northwestern University's Radiology and Biomedical Engineering Department at Chicago. His research interests are artificial intelligence, machine learning and their applications in biomedical and clinical imaging. Dr. Bagci has more than 400 peer-reviewed articles on these topics. Previously, he was a staff scientist and lab co-manager at the National Institutes of Health's radiology and imaging sciences department, center for infectious disease imaging. Dr. Bagci holds several NIH R01 and U01 grants (as Principal Investigator) and serves as a steering committee member of AIR (artificial intelligence resource) at the NIH. Dr. Bagci also serves as an area chair for MICCAI for several years and he is an associate editor of top-tier journals in his fields such as IEEE Trans. on Medical Imaging, Medical Physics, and Medical Image Analysis. Prof. Bagci teaches machine learning, advanced deep learning methods, computer and robot vision, and medical imaging courses. He has several international and national recognitions including best paper and reviewer awards. At Ther-AI LLC, Dr. BAgci and the team has been awarded an NIH SBIR Phase-I Project, called iLIGN, PI: Dr. Saad Shaikh.",
+      "avatar": "/src/assets/team/Ulas-400X600.webp",
+      "email": "ulas.bagci@ther-ai.com",
+      "specialties": ["Artificial Intelligence", "Machine Learning", "Medical Imaging", "Computer Vision", "Deep Learning"],
       "active": true,
       "order": 1,
       "featured": true,
       "socialMedia": {
-        "linkedin": "https://linkedin.com/in/sarahchen",
-        "instagram": "",
-        "facebook": "",
-        "twitter": ""
-      }
-    },
-    {
-      "id": "prof-dr-michael-rodriguez",
-      "name": "Prof. Dr. Michael Rodriguez",
-      "position": "Professor of Oncology & Senior AI Researcher",
-      "department": "Research",
-      "bio": "Professor of Oncology and AI researcher specialized in oncological AI applications with focus on early cancer detection systems and treatment planning.",
-      "avatar": "https://images.pexels.com/photos/5327921/pexels-photo-5327921.jpeg",
-      "email": "michael.rodriguez@ther-ai.com",
-      "specialties": ["Oncology", "Cancer Detection", "Medical Imaging", "Treatment Planning"],
-      "active": true,
-      "order": 2,
-      "featured": true,
-      "socialMedia": {
-        "linkedin": "https://linkedin.com/in/michaelrodriguez",
-        "instagram": "",
-        "facebook": "",
-        "twitter": ""
-      }
-    },
-    {
-      "id": "dr-emily-thompson",
-      "name": "Dr. Emily Thompson, MD",
-      "position": "Chief Medical Officer",
-      "department": "Medical",
-      "bio": "Board-certified radiologist and medical doctor specializing in AI-assisted diagnostic imaging and clinical decision support systems.",
-      "avatar": "https://images.pexels.com/photos/5327656/pexels-photo-5327656.jpeg",
-      "email": "emily.thompson@ther-ai.com",
-      "specialties": ["Radiology", "Medical Imaging", "Clinical AI", "Diagnostic Systems"],
-      "active": true,
-      "order": 3,
-      "featured": false,
-      "socialMedia": {
-        "linkedin": "https://linkedin.com/in/emilythompson",
+        "linkedin": "",
         "instagram": "",
         "facebook": "",
         "twitter": ""
