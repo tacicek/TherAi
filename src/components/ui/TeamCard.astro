@@ -1,5 +1,6 @@
 ---
 export interface Props {
+  id?: string;
   name: string;
   position: string;
   department: string;
@@ -15,7 +16,6 @@ export interface Props {
   };
 }
 
-const { name, position, department, bio, avatar, email, specialties, socialMedia } = Astro.props;
 ---
 
 <div class="group bg-white/5 dark:bg-white/5 light:bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-white/10 dark:border-white/10 light:border-gray-100 backdrop-blur-sm">
@@ -118,7 +118,7 @@ const { name, position, department, bio, avatar, email, specialties, socialMedia
     
     <!-- Contact Button -->
     <a 
-      href={`mailto:${email}?subject=Inquiry about ${name}&body=Hello ${name},%0D%0A%0D%0AI would like to learn more about your work at Ther-AI.%0D%0A%0D%0ABest regards`}
+      href={`/team/${Astro.props.id || name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
       class="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 block text-center"
     >
       Connect

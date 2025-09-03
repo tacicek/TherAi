@@ -54,6 +54,7 @@ const departments = [...new Set(activeTeam.map(member => member.department))];
           {activeTeam.map((member) => (
             <div class="team-member animate-fade-in" data-department={member.department}>
               <TeamCard 
+                id={member.id}
                 name={member.name}
                 position={member.position}
                 department={member.department}

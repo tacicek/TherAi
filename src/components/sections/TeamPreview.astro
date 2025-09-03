@@ -27,6 +27,7 @@ const featuredTeam = teamData.teamMembers
       {featuredTeam.map((member, index) => (
         <div class="animate-fade-in" style={`animation-delay: ${index * 0.2}s`}>
           <TeamCard 
+            id={member.id}
             name={member.name}
             position={member.position}
             department={member.department}
