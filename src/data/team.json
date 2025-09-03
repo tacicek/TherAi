@@ -18,6 +18,25 @@
         "facebook": "",
         "twitter": ""
       }
+    },
+    {
+      "id": "prof-saad-shaikh",
+      "name": "Prof. Saad Shaikh",
+      "position": "Principal Investigator",
+      "department": "Research",
+      "bio": "Dr. Saad Shaikh is a board-certified ophthalmologist and accomplished retinal surgeon whose career spans advanced clinical practice, medical innovation, and entrepreneurial leadership. A graduate of the UC Davis School of Medicine, he completed his ophthalmology residency at Stanford and a prestigious fellowship in retinal surgery at William Beaumont Hospital in Royal Oak, Michigan. Over the years, Dr. Shaikh has trained numerous ophthalmologists, served as a professor at multiple universities, and authored books, chapters, and scholarly articles that have contributed significantly to the field's body of knowledge. In addition to his clinical and academic work, Dr. Shaikh holds an MBA in healthcare management and has a dedicated focus on integrating cutting-edge technology into patient care. He is actively involved in developing artificial intelligence (AI) algorithms that optimize diagnostic accuracy and streamline treatment pathways. He is equally passionate about remote healthcare delivery and telemedicine, positioning himself at the forefront of digital health solutions. By combining his medical expertise, academic leadership, and strategic business perspective, Dr. Shaikh is poised to drive forward-thinking ventures that leverage technology to improve outcomes, expand access to care, and generate long-term value for both patients and investors.",
+      "avatar": "/src/assets/team/Prof.-Saad-Shaik-400x600.webp",
+      "email": "saad.shaikh@ther-ai.com",
+      "specialties": ["Ophthalmology", "Retinal Surgery", "Medical AI", "Healthcare Innovation", "Telemedicine"],
+      "active": true,
+      "order": 2,
+      "featured": true,
+      "socialMedia": {
+        "linkedin": "",
+        "instagram": "",
+        "facebook": "",
+        "twitter": ""
+      }
     }
   ]
 }
