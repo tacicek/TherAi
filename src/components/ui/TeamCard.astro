@@ -117,9 +117,12 @@ const { name, position, department, bio, avatar, email, specialties, socialMedia
     </div>
     
     <!-- Contact Button -->
-    <button class="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105">
+    <a 
+      href={`mailto:${email}?subject=Inquiry about ${name}&body=Hello ${name},%0D%0A%0D%0AI would like to learn more about your work at Ther-AI.%0D%0A%0D%0ABest regards`}
+      class="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 block text-center"
+    >
       Connect
-    </button>
+    </a>
   </div>
 </div>
 
