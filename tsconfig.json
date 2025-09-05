@@ -1,5 +1,5 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": "next",
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "react"
