@@ -1,21 +1,10 @@
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
-import Hero from '@/components/sections/Hero'
-import About from '@/components/sections/About'
-import FeaturedProjects from '@/components/sections/FeaturedProjects'
-import Contact from '@/components/sections/Contact'
-
 export default function Home() {
   return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <FeaturedProjects />
-        <Contact />
-      </main>
-      <Footer />
-    </>
+    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold mb-4">Ther-AI Test Page</h1>
+        <p className="text-xl">Next.js is working!</p>
+      </div>
+    </div>
   )
 }
