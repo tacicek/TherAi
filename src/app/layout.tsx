@@ -39,11 +39,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased transition-colors duration-300`} data-theme="dark">
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+    <html lang="en">
+      <body className={inter.className}>
+        {children}
       </body>
     </html>
   )
